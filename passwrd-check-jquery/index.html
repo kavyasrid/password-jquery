@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Password strength checking with jquery</title>
+      <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+      <meta charset="utf-8">
+    </head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="jquery.complexify.min.js"></script>
+    <body>
+
+
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+          <h4> Password strength check with jquery</h4>
+        <label>Enter Storng Password: </label>
+        <input type="password" id="pwd"><br/>
+        <progress style="margin-left:20%" value="0" max="100" id="pg"></progress> <span id="cpx">0%</span> 
+      </div>
+
+
+      <script type="text/javascript">
+        $(function(){
+            $("#pwd").complexify({}, function(valid, complexity){
+                $("#pg").val(Math.round(complexity));
+                $("#cpx").html(Math.round(complexity)+'%');
+            });
+        });
+  
+      </script>
+      </body>
+      </html>
